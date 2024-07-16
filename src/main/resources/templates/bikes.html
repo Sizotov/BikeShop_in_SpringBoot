@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Магазин велосипедов</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bod">
+<div class="container">
+    <h1>Каталог велосипедов</h1>
+    <br>
+    <table class="tab">
+        <tr>
+            <th>Id</th>
+            <th>Brand</th>
+            <th>Color</th>
+            <th>Price</th>
+        </tr>
+        <tr th:each="bike: ${bikes}">
+            <td th:text="${bike.id}"></td>
+            <td th:text="${bike.brand}"></td>
+            <td th:text="${bike.color}"></td>
+            <td th:text="${bike.price}"></td>
+        </tr>
+    </table>
+
+    <form class="link login-form" th:action="@{/login}" method="post" style="display: block; margin-top: 1em;">
+        <button class="linkbutton login-button" type="submit">Авторизоваться</button>
+    </form>
+</div>
+</body>
+</html>

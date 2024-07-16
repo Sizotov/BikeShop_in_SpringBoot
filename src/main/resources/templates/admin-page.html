@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-secutiry">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин велосипедов</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bod">
+<div class="container">
+
+<br>
+<span sec:authorize="hasRole('ADMIN')" class="nav">&nbsp;&nbsp;&nbsp;Статус: администратор&nbsp;&nbsp;&nbsp;</span>
+
+<form class="link" th:action="@{/logout}" method="post" style="display: inline;">
+    <button class="linkbutton" type="submit">&nbsp;&nbsp;Выйти&nbsp;&nbsp;</button>
+</form>
+<h1>Магазин велосипедов</h1>
+<br>
+<p></p>
+<br>
+<span class="rev">Сумма продаж: </span><span class="rev" th:text="${revenue}"></span>
+<br>
+<h2>Все велосипеды:</h2>
+
+<table class="tab">
+    <tr>
+        <th>Id</th>
+        <th>Brand</th>
+        <th>Color</th>
+        <th>Price</th>
+    </tr>
+    <tr th:each="bike: ${bikes}">
+        <td th:text="${bike.id}"></td>
+        <td th:text="${bike.brand}"></td>
+        <td th:text="${bike.color}"></td>
+        <td th:text="${bike.price}"></td>
+        <td><a th:href="@{bike-revenue/{brand}(brand=${bike.brand})}">Продать</a></td>
+    </tr>
+</table>
+</div>
+</body>
+</html>

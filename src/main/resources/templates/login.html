@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/security">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/style_login.css">
+</head>
+<body>
+<div class="container">
+    <form action="/login" method="post" id="login-form">
+        <h2 th:text="'Вход в систему'">Вход в систему</h2>
+        <label>Пользователь:
+            <select name="username">
+                <option value="USER">user</option>
+                <option value="ADMIN">admin</option>
+            </select>
+        </label>
+        <label>Пароль: <input type="password" name="password"/></label>
+        <h4>
+            <a href="#" onclick="redirectUser()">Войти</a>
+        </h4>
+        <script>
+            function redirectUser() {
+                if (document.querySelector('select[name="username"]').value === 'USER') {
+                    window.location.href = 'user-page';
+                } else if (document.querySelector('select[name="username"]').value === 'ADMIN') {
+                    window.location.href = 'admin-page';
+                }
+            }
+        </script>
+    </form>
+</div>
+</body>
+</html>
