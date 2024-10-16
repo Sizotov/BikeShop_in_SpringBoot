@@ -19,4 +19,4 @@ BikeShop — веб-приложение, созданное с использо
 - Hibernate
 - Lombok
 - Jakarta Persistence (JPA)
-- Maven
+- Maven и другие ....
