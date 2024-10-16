@@ -13,6 +13,8 @@ BikeShop — веб-приложение, созданное с использо
 - Java (JDK 17)
 - Spring Boot
 - Spring MVC
+- Spring Security
+- Thymeleaf
 - Spring Data JPA
 - Hibernate
 - Lombok
